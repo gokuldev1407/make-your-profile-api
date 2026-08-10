@@ -1,0 +1,17 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: make-your-profile-api
+  data:
+    mongodb:
+      uri: mongodb+srv://gokuldev1407_db_user:W2wiEIKO0WJJCVZG@mkecluster0.j5vuap6.mongodb.net/make_your_profile?retryWrites=true&w=majority
+      database: make_your_profile
+      auto-index-creation: true
+
+groq:
+  api:
+    key: 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
+    url: https://api.groq.com/openai/v1/chat/completions
+    model: llama-3.3-70b-versatile
