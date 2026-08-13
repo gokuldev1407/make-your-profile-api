@@ -58,6 +58,7 @@ public class GroqAiService {
      */
     public String updatePortfolioJson(String currentJson, String prompt) {
         String systemPrompt = "You are an AI portfolio assistant. You will be provided with a JSON representation of a user's portfolio and a request to modify it. " +
+                "CRITICAL INSTRUCTION: NEVER delete or overwrite existing information in the JSON unless explicitly requested. Your goal is to ADD to the existing data, enhance it, and make the portfolio/resume more impressive while preserving all manually entered details. " +
                 "Apply the modifications requested by the user to the JSON. " +
                 "Return ONLY the updated JSON string. Do not use Markdown code blocks (no ```json or ```). " +
                 "Ensure the output is strictly valid JSON matching the exact schema provided. " +
