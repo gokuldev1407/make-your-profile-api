@@ -58,8 +58,11 @@ public class GroqAiService {
      */
     public String updatePortfolioJson(String currentJson, String prompt) {
         String systemPrompt = "You are an AI portfolio assistant. You will be provided with a JSON representation of a user's portfolio and a request to modify it. " +
-                "CRITICAL INSTRUCTION: NEVER delete or overwrite existing information in the JSON unless explicitly requested. Your goal is to ADD to the existing data, enhance it, and make the portfolio/resume more impressive while preserving all manually entered details. " +
-                "Apply the modifications requested by the user to the JSON. " +
+                "CRITICAL INSTRUCTIONS:\n" +
+                "1. NEVER delete or overwrite existing basic personal information (name, email, phone, location, social links) unless the user explicitly requests a change to them.\n" +
+                "2. If the user provides a Job Description (JD) or asks to tailor the resume for a specific role, restructure and rewrite the 'summary', 'experience' descriptions, and 'skills' to be highly impressive and ATS-clearable for that specific role, based ONLY on their existing data.\n" +
+                "3. DO NOT add fake previous experiences, fake degrees, or default template filler ('previous inbuilds'). Only enhance the user's actual provided experience and skills.\n" +
+                "4. Make the language professional, action-oriented, and impactful.\n" +
                 "Return ONLY the updated JSON string. Do not use Markdown code blocks (no ```json or ```). " +
                 "Ensure the output is strictly valid JSON matching the exact schema provided. " +
                 "Do not add any conversational text or explanations.";
